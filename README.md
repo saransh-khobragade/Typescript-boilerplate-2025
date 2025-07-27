@@ -106,17 +106,33 @@ If you're not seeing ESLint errors in VS Code:
 - Add `console.log('test');` - you should see a red squiggly line
 - If you don't see errors, try restarting VS Code
 
-## 🚨 Strict ESLint Rules
+## 🚨 Industry-Level Strict Configuration
+
+This project uses **industry-level strict** TypeScript and ESLint rules that catch potential issues at compile time.
 
 ### **TypeScript Strict Rules**
 
-- `@typescript-eslint/no-explicit-any` - Bans `any` type usage
-- `@typescript-eslint/no-non-null-assertion` - Bans `!` non-null assertions
-- `@typescript-eslint/no-unsafe-*` - Bans unsafe TypeScript operations
-- `@typescript-eslint/prefer-nullish-coalescing` - Enforces `??` over `||`
-- `@typescript-eslint/prefer-optional-chain` - Enforces `?.` over `&&`
-- `@typescript-eslint/consistent-type-imports` - Enforces consistent import types
-- `@typescript-eslint/no-floating-promises` - Bans unhandled promises
+- `strict: true` - Enables all strict type checking options
+- `noUncheckedIndexedAccess` - Prevents unsafe array/object access
+- `exactOptionalPropertyTypes` - Strict optional property handling
+- `useUnknownInCatchVariables` - Makes catch variables `unknown` instead of `any`
+- `noImplicitReturns` - Ensures all code paths return a value
+- `noUnusedLocals` - Flags unused local variables
+- `noUnusedParameters` - Flags unused function parameters
+- `noFallthroughCasesInSwitch` - Prevents switch fallthrough bugs
+
+### **ESLint Strict Rules**
+
+- `@typescript-eslint/explicit-function-return-type` - **REQUIRES** explicit return types
+- `@typescript-eslint/explicit-module-boundary-types` - **REQUIRES** return types on exported functions
+- `@typescript-eslint/no-explicit-any` - **BANS** `any` type usage
+- `@typescript-eslint/no-non-null-assertion` - **BANS** `!` non-null assertions
+- `@typescript-eslint/no-unsafe-*` - **BANS** unsafe TypeScript operations
+- `@typescript-eslint/strict-boolean-expressions` - **ENFORCES** strict boolean checks
+- `@typescript-eslint/switch-exhaustiveness-check` - **ENFORCES** exhaustive switch statements
+- `@typescript-eslint/no-floating-promises` - **BANS** unhandled promises
+- `@typescript-eslint/prefer-nullish-coalescing` - **ENFORCES** `??` over `||`
+- `@typescript-eslint/prefer-optional-chain` - **ENFORCES** `?.` over `&&`
 
 ### **JavaScript Strict Rules**
 
@@ -186,6 +202,24 @@ yarn format:check
 # Test the application
 yarn dev
 ```
+
+## 🔧 Debugging Common Errors
+
+If you encounter TypeScript or ESLint errors, check the **[DEBUG_GUIDE.md](./DEBUG_GUIDE.md)** for solutions to common issues:
+
+- Missing return type annotations
+- Using `any` type
+- Non-null assertions
+- Unsafe operations
+- Unused variables
+- And 20+ more common errors with fixes
+
+The debug guide includes:
+
+- ✅ Exact error messages
+- ❌ Wrong code examples
+- ✅ Correct code examples
+- Quick auto-fix commands
 
 ## 🎉 Benefits
 
